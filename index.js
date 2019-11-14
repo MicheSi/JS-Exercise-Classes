@@ -143,12 +143,18 @@ class Instructor extends Lambdasian {
     this.catchPhrase = person.catchPhrase;
   }
   demo(subject){
-    return `Tosay we are learning about ${subject}`;
+    return `Today we are learning about ${subject}`;
   }
   grade(student, subject) {
     return `${student.name} receives a perfect score on ${subject}`;
   }
+  assignGrades(min, max, grade){ // stretch challenge
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return grade - (Math.floor(Math.random() * (max - min + 1)) + min);
+  }
 }
+
 
 /*
   TASK 5
@@ -171,6 +177,7 @@ class Student extends Lambdasian {
     this.previousBackground = person.previousBackground;
     this.className = person.className;
     this.favSubjects = person.favSubjects;
+    this.grade = 90; //stretch challenge
   }
   listSubjects(){
     return `${this.favSubjects}`
@@ -180,6 +187,13 @@ class Student extends Lambdasian {
   }
   sprintChallenge(subject){
     return `${this.name} has begun a sprint challenge on ${subject}`;
+  }
+  graduate(){ // stretch challenge
+    if (this.grade > 70) {
+      return `${this.name} is ready to graduate!`;
+    } else {
+      return `${this.name} needs after hour support`;
+    }
   }
 }
 
